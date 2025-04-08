@@ -5,63 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stefano Fiorini</title>
   <style>
+    /* Global Styles */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f7fa;
+      background: #e8f0f8;
       color: #333;
-    }
-    header {
-      background: #003366;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    .container {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      margin-top: -3rem;
-      position: relative;
-      z-index: 1;
-    }
-    h2 {
-      color: #ADD8E6; /* Light Blue */
-      border-bottom: 2px solid #0077cc;
-      padding-bottom: 0.3rem;
-    }
-    p, ul {
-      color: #333;
+      line-height: 1.6;
     }
     a {
       color: #0077cc;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     a:hover {
-      text-decoration: underline;
+      color: #005a99;
     }
-    footer {
+    
+    /* Header with gradient background */
+    header {
+      background: linear-gradient(135deg, #003366, #005a99);
+      color: white;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    .logos {
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+    }
+    
+    /* Container Card */
+    .container {
+      background: white;
+      max-width: 900px;
+      margin: -3rem auto 2rem;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Headings */
+    h2 {
+      color: #ADD8E6;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+    }
+    
+    /* About Me Section */
+    .about {
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
       align-items: center;
-      margin-top: 1rem;
+      gap: 2rem;
+      margin-bottom: 2rem;
     }
-    .logos img {
-      height: 40px;
+    .about-text {
+      flex: 1 1 300px;
+    }
+    .about-photo {
+      flex: 0 0 200px;
+      text-align: center;
+    }
+    .about-photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #0077cc;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .about-photo img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Lists and Publications */
+    ul {
+      list-style: none;
+      padding: 0;
     }
     .pub-year {
       font-weight: bold;
@@ -72,6 +103,16 @@
     .publication {
       margin-bottom: 1rem;
       padding-left: 1rem;
+      border-left: 3px solid #ADD8E6;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      background: #f4f7fa;
     }
   </style>
 </head>
@@ -81,30 +122,36 @@
     <p>Postdoctoral Researcher at Istituto Italiano di Tecnologia</p>
   </header>
   <div class="container">
+    <!-- About Me Section -->
     <h2>About Me</h2>
-<p>
-  I am Stefano, a Postdoctoral Researcher at the <strong>Istituto Italiano di Tecnologia</strong> and a visiting researcher at the <strong>University of Cambridge</strong> in the group led by Professor Pietro Lio’. My journey in academia is fueled by my passion for pushing the boundaries of knowledge and using advanced computational methods to solve real-world problems.
-</p>
-<p>
-  I obtained my Ph.D. in Computer Science from the <strong>University of Milano-Bicocca in 2023</strong>, where I developed a strong foundation in machine learning, graph theory, and interdisciplinary applications spanning from computational chemistry to smart mobility. Along the way, I honed my skills during internships and research visits, including an impactful stint at <strong>Nokia Bell Labs</strong> in Cambridge (2021) and a research visit to the Mathematics Department at the <strong>University of Southampton</strong> (2022).
-</p>
-<p>
-  My research interests are as diverse as they are interconnected. I am deeply involved in the exploration of Graph Neural Networks and Hypergraph Neural Networks, which help in understanding complex data structures, as well as advancing methods in Computer Vision, Computational Chemistry, Diffusion Models, and Smart Mobility. This multidisciplinary focus enables me to approach problems from new angles and collaborate with experts across various domains.
-</p>
-<p>
-  Beyond my research, I thrive on continuous learning and am always enthusiastic about collaborating with diverse research groups. I believe that fruitful collaborations and the exchange of ideas are key to catalyzing innovation and scientific progress.
-</p>
-<p>
-  When I am not immersed in research, you can often find me outdoors. I have a deep passion for hiking and skiing, activities that not only refresh my mind but also inspire creative thinking. I enjoy traveling to different countries, experiencing new cultures, and reading about a wide range of topics, all of which contribute to my broad perspective and lifelong commitment to learning.
-</p>
-
-
+    <div class="about">
+      <div class="about-photo">
+        <img src="your-photo.jpg" alt="Stefano Fiorini" />
+      </div>
+      <div class="about-text">
+        <p>
+          I am Stefano, a Postdoctoral Researcher at the <strong>Istituto Italiano di Tecnologia</strong> and a visiting researcher at the <strong>University of Cambridge</strong> in the group led by Professor Pietro Lio’. My journey in academia has been fueled by a passion for pushing the boundaries of knowledge and applying advanced computational methods to solve real-world problems.
+        </p>
+        <p>
+          I earned my Ph.D. in Computer Science from the <strong>University of Milano-Bicocca in 2023</strong>, where I developed a robust interdisciplinary foundation spanning machine learning, graph theory, and diverse applications from computational chemistry to smart mobility. My academic path includes impactful internships and research visits, like my time at <strong>Nokia Bell Labs</strong> (2021) and a research visit to the Mathematics Department at the <strong>University of Southampton</strong> (2022).
+        </p>
+        <p>
+          My research interests encompass Graph Neural Networks, Hypergraph Neural Networks, Computer Vision, Computational Chemistry, Diffusion Models, and Smart Mobility—each playing an essential role in my work on cutting-edge technology and innovation.
+        </p>
+        <p>
+          Beyond academia, I am an avid learner who loves collaborating with diverse research groups to explore new ideas. I also enjoy outdoor activities such as hiking and skiing, as well as traveling to different countries and indulging in my love of reading.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Previous Experiences Section -->
     <h2>Previous Experiences</h2>
     <ul>
       <li>2022 – Visiting Researcher, Mathematics Department, University of Southampton</li>
       <li>2021 – Internship at Nokia Bell Labs, Cambridge</li>
     </ul>
-
+    
+    <!-- Research Interests Section -->
     <h2>Research Interests</h2>
     <ul>
       <li>Graph Neural Networks</li>
@@ -114,30 +161,44 @@
       <li>Diffusion Models</li>
       <li>Smart Mobility</li>
     </ul>
-
+    
+    <!-- Links Section -->
     <h2>Links</h2>
     <p>
       📚 <a href="https://scholar.google.it/citations?user=2O-BN9YAAAAJ&hl=it" target="_blank">Google Scholar</a><br/>
       💼 <a href="https://it.linkedin.com/in/stefano-fiorini/" target="_blank">LinkedIn</a><br/>
       📄 <a href="CV_stefano_fiorini-8.pdf" target="_blank">Download my CV</a>
     </p>
-
+    
+    <!-- Selected Publications Section -->
     <h2>Selected Publications</h2>
     <div class="pub-year">2025</div>
-    <div class="publication">S. Fiorini, G. M. Bovolenta, S. Coniglio, M. Ciavotta, M. Parrinello, A. Del Bue. <em>DLGNET: Hyperedge Classification through Directed Line Graphs for Chemical Reaction.</em></div>
-
+    <div class="publication">
+      S. Fiorini, G. M. Bovolenta, S. Coniglio, M. Ciavotta, M. Parrinello, A. Del Bue. <em>DLGNET: Hyperedge Classification through Directed Line Graphs for Chemical Reaction.</em>
+    </div>
     <div class="pub-year">2024</div>
-    <div class="publication">S. Fiorini, S. Coniglio, M. Ciavotta, A. Del Bue. <em>Let There be Direction in Hypergraph Neural Networks.</em> Transactions on Machine Learning Research (TMLR).</div>
-    <div class="publication">G. Scarpellini<sup>1</sup>, S. Fiorini<sup>1</sup>, F. Giuliari<sup>1</sup>, P. Morerio, A. Del Bue. <em>DiffAssemble: A Unified Graph-Diffusion Model for 2D and 3D Reassembly.</em> CVPR 2024.</div>
-    <div class="publication">S. Fiorini, S. Coniglio, M. Ciavotta, E. Messina. <em>Graph Learning in 4D: a Quaternion-valued Laplacian to Enhance Spectral GCNs.</em> AAAI 2024.</div>
-    <div class="publication">F. Giuliari, G. Scarpellini, S. Fiorini, S. James, P. Morerio, Y. Wang, A. Del Bue. <em>Positional Diffusion: Graph-based Diffusion Models for Set Ordering.</em> Pattern Recognition Letters 186 (2024).</div>
-
+    <div class="publication">
+      S. Fiorini, S. Coniglio, M. Ciavotta, A. Del Bue. <em>Let There be Direction in Hypergraph Neural Networks.</em> Transactions on Machine Learning Research (TMLR).
+    </div>
+    <div class="publication">
+      G. Scarpellini<sup>1</sup>, S. Fiorini<sup>1</sup>, F. Giuliari<sup>1</sup>, P. Morerio, A. Del Bue. <em>DiffAssemble: A Unified Graph-Diffusion Model for 2D and 3D Reassembly.</em> CVPR 2024.
+    </div>
+    <div class="publication">
+      S. Fiorini, S. Coniglio, M. Ciavotta, E. Messina. <em>Graph Learning in 4D: a Quaternion-valued Laplacian to Enhance Spectral GCNs.</em> AAAI 2024.
+    </div>
+    <div class="publication">
+      F. Giuliari, G. Scarpellini, S. Fiorini, S. James, P. Morerio, Y. Wang, A. Del Bue. <em>Positional Diffusion: Graph-based Diffusion Models for Set Ordering.</em> Pattern Recognition Letters 186 (2024).
+    </div>
     <div class="pub-year">2023</div>
-    <div class="publication">S. Fiorini, S. Coniglio, M. Ciavotta, E. Messina. <em>SigMaNet: One Laplacian to Rule Them All.</em> AAAI 2023.</div>
-
+    <div class="publication">
+      S. Fiorini, S. Coniglio, M. Ciavotta, E. Messina. <em>SigMaNet: One Laplacian to Rule Them All.</em> AAAI 2023.
+    </div>
+    
+    <!-- Contact Section -->
     <h2>Contact</h2>
     <p>Email: <a href="mailto:s.fiorini1994@gmail.com">s.fiorini1994@gmail.com</a></p>
   </div>
+  
   <footer>
     &copy; 2025 Stefano Fiorini
   </footer>
