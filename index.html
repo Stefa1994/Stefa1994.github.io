@@ -7,186 +7,170 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a2342;
-            --accent: #0077cc;
-            --bg: #f8fafc;
-            --text: #1e293b;
-            --light-text: #64748b;
+            --primary: #0f172a; /* Deep Navy */
+            --accent: #2563eb;  /* Academic Blue */
+            --bg: #f1f5f9;
+            --text: #334155;
+            --card-bg: #ffffff;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* Hero Section */
+        /* Fixed Horizontal Header */
         header {
             background: var(--primary);
             color: white;
-            padding: 4rem 2rem;
+            padding: 3.5rem 1rem;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            border-bottom: 4px solid var(--accent);
         }
 
         header h1 {
-            font-size: 3rem;
             margin: 0;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         header p {
+            margin: 0.8rem 0 0;
             font-size: 1.2rem;
+            font-weight: 300;
             opacity: 0.9;
-            margin-top: 10px;
         }
 
-        /* Layout */
-        .main-grid {
-            max-width: 1100px;
-            margin: -4rem auto 3rem;
+        /* Layout Container */
+        .main-container {
+            max-width: 1050px;
+            margin: 2rem auto;
             display: grid;
-            grid-template-columns: 320px 1fr;
+            grid-template-columns: 300px 1fr;
             gap: 2rem;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
 
-        /* Sidebar / Profile Card */
+        /* Profile Sidebar */
         .sidebar {
-            position: sticky;
-            top: 2rem;
-            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .profile-card {
-            background: white;
+            background: var(--card-bg);
             padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             text-align: center;
         }
 
         .profile-card img {
-            width: 180px;
-            height: 180px;
+            width: 100%;
+            max-width: 200px;
+            aspect-ratio: 1/1;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #f1f5f9;
+            border: 4px solid var(--bg);
             margin-bottom: 1.5rem;
         }
 
-        .contact-links {
+        .social-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 1.5rem;
+            gap: 0.8rem;
             text-align: left;
+            margin-top: 1rem;
         }
 
-        .contact-links a {
+        .social-links a {
             color: var(--text);
             text-decoration: none;
             font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: color 0.2s;
+            gap: 12px;
+            transition: 0.2s;
         }
 
-        .contact-links a:hover { color: var(--accent); }
+        .social-links a:hover { color: var(--accent); }
 
-        /* Content Area */
-        .content {
-            background: transparent;
-        }
-
+        /* Main Content Cards */
         section {
-            background: white;
+            background: var(--card-bg);
             padding: 2.5rem;
-            border-radius: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         h2 {
-            font-size: 1.5rem;
             margin-top: 0;
             color: var(--primary);
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Typography & Components */
-        .about-text p { margin-bottom: 1.2rem; }
-        
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+        /* Experience Items */
+        .item {
+            margin-bottom: 1.8rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
         }
 
-        .tag {
-            background: #eff6ff;
-            color: var(--accent);
-            padding: 5px 12px;
-            border-radius: 20px;
+        .item-date {
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
         }
 
-        .exp-item {
-            border-left: 2px solid #e2e8f0;
-            padding-left: 1.5rem;
-            margin-bottom: 2rem;
-            position: relative;
+        .item-title {
+            display: block;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
         }
 
-        .exp-item::before {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
-        .exp-date { font-size: 0.85rem; color: var(--accent); font-weight: bold; }
-        .exp-title { font-weight: bold; display: block; font-size: 1.1rem; }
-
-        /* Publications */
-        .pub-list { margin-top: 1rem; }
+        /* Publications Styling */
         .pub-year {
-            font-size: 1.2rem;
             font-weight: 800;
-            color: #cbd5e1;
-            margin: 2rem 0 1rem;
+            color: #94a3b8;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.5rem;
         }
 
-        .pub-item {
-            padding: 1rem;
-            border-radius: 12px;
-            transition: background 0.2s;
+        .publication {
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
         }
-        .pub-item:hover { background: #f8fafc; }
-        .pub-title { font-weight: bold; color: var(--primary); display: block; }
-        .pub-venue { font-style: italic; font-size: 0.9rem; color: var(--light-text); }
-        .me { text-decoration: underline; font-weight: 700; }
 
-        @media (max-width: 850px) {
-            .main-grid { grid-template-columns: 1fr; margin-top: 1rem; }
-            .sidebar { position: relative; top: 0; }
+        .me { font-weight: 700; color: var(--primary); text-decoration: underline; }
+
+        .award-tag {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 800px) {
+            .main-container { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -194,97 +178,98 @@
 
 <header>
     <h1>Stefano Fiorini</h1>
-    <p>Research Scientist @ Huawei Finland R&D</p>
+    <p>Research Scientist at Huawei Finland R&D</p>
 </header>
 
-<div class="main-grid">
+<div class="main-container">
     <aside class="sidebar">
         <div class="profile-card">
             <img src="image.png" alt="Stefano Fiorini">
-            <h3>Contact</h3>
-            <div class="contact-links">
-                <a href="mailto:s.fiorini1994@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+            <div class="social-links">
+                <a href="mailto:s.fiorini1994@gmail.com"><i class="fas fa-envelope"></i> Email</a>
                 <a href="https://scholar.google.it/citations?user=2O-BN9YAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
                 <a href="https://it.linkedin.com/in/stefano-fiorini/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/Stefa1994" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="CV_stefano_fiorini-8.pdf"><i class="fas fa-file-pdf"></i> Download CV</a>
+                <a href="uploaded:Stefano_FIORINI_CV.pdf"><i class="fas fa-file-pdf"></i> Resume (PDF)</a>
             </div>
         </div>
     </aside>
 
     <div class="content">
         <section>
-            <h2><i class="fas fa-user"></i> About Me</h2>
-            <div class="about-text">
-                <p>
-                    I am Stefano, a Research Scientist at <strong>Huawei Finland R&D</strong> [cite: 8, 9] and a visiting researcher at the <strong>University of Cambridge</strong> [cite: 14, 15] in the group led by Professor Pietro Liò[cite: 21]. Previously, I was a Postdoctoral Researcher at the <strong>Italian Institute of Technology (IIT)</strong> [cite: 22, 23] within the PAVIS group supervised by Alessio Del Bue, Ph.D.[cite: 28].
-                </p>
-                <p>
-                    I earned my Ph.D. in Computer Science from the <strong>University of Milano-Bicocca</strong> in 2023 [cite: 53, 56], building a robust foundation in machine learning and graph theory[cite: 58]. My career includes research stints at <strong>Nokia Bell Labs</strong> [cite: 36] and the <strong>University of Southampton</strong>[cite: 30].
-                </p>
-                <p>
-                    <strong>Interests:</strong> Generative Models, Graph & Hypergraph Neural Networks, Computer Vision, Autonomous Driving, and Computational Chemistry[cite: 6].
-                </p>
-                <div class="tag-container">
-                    <span class="tag">Diffusion Models</span>
-                    <span class="tag">Geometric DL</span>
-                    <span class="tag">GNNs</span>
-                    <span class="tag">Scene Synthesis</span>
-                    <span class="tag">Smart Mobility</span>
-                </div>
+            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <p>
+                I am Stefano, a Research Scientist at <strong>Huawei Finland R&D</strong> and a visiting researcher at the <strong>University of Cambridge</strong> (group of Prof. Pietro Liò). Previously, I was a Postdoctoral Researcher at the <strong>Italian Institute of Technology (IIT)</strong> in the PAVIS group supervised by Alessio Del Bue, Ph.D.
+            </p>
+            <p>
+                I earned my Ph.D. in Computer Science from the <strong>University of Milano-Bicocca in 2023</strong>. My work focuses on pushing the boundaries of <strong>Generative Models, Graph Neural Networks, and Autonomous Driving</strong>.
+            </p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div class="item">
+                <span class="item-date">2025 — Present</span>
+                <span class="item-title">Research Scientist, Huawei Finland R&D</span>
+                <span class="award-tag"><i class="fas fa-trophy"></i> Outstanding Individual Contribution Award</span>
+                <p>Focusing on diffusion models and VAEs for scene synthesis in autonomous driving.</p>
+            </div>
+            <div class="item">
+                <span class="item-date">2025 — Present</span>
+                <span class="item-title">Visiting Researcher, University of Cambridge</span>
+                <p>Investigating directionality in Sheaf Neural Networks for molecular modeling.</p>
+            </div>
+            <div class="item">
+                <span class="item-date">2023 — 2025</span>
+                <span class="item-title">Postdoc, Istituto Italiano di Tecnologia</span>
+                <p>Researching GNNs and Diffusion Models for 3D reassembly and computer vision.</p>
             </div>
         </section>
 
         <section>
-            <h2><i class="fas fa-briefcase"></i> Experience</h2>
-            <div class="exp-item">
-                <span class="exp-date">2025 — Present</span>
-                <span class="exp-title">Research Scientist, Huawei Finland R&D</span>
-                <small>Leading research on diffusion models for autonomous driving. Awarded Outstanding Individual Contribution Award[cite: 11, 12].</small>
+            <h2><i class="fas fa-microphone-alt"></i> Invited Talks</h2>
+            <div class="publication">
+                <strong>AstraZeneca & Samsung AI (UK):</strong> "Graph and Hypergraph Neural Networks: From Theory to Real-World Applications" (2025)
             </div>
-            <div class="exp-item">
-                <span class="exp-date">2025 — Present</span>
-                <span class="exp-title">Visiting Researcher, University of Cambridge</span>
-                <small>Researching Sheaf Neural Networks and molecular modeling[cite: 18, 19].</small>
-            </div>
-            <div class="exp-item">
-                <span class="exp-date">2023 — 2025</span>
-                <span class="exp-title">Postdoc, Istituto Italiano di Tecnologia</span>
-                <small>Foundational research on GNNs and Diffusion Models[cite: 26].</small>
+            <div class="publication">
+                <strong>University of Oxford:</strong> "GNN & HNN: Directional Awakening" (Learning on Graphs Seminar, 2025)
             </div>
         </section>
 
         <section>
-            <h2><i class="fas fa-book"></i> Selected Publications</h2>
-            <div class="pub-list">
-                <div class="pub-year">2026</div>
-                <div class="pub-item">
-                    <span class="pub-title"><span class="me">S. Fiorini</span>, H. Aktas, I. Duta, et al. "Sheaves Reloaded: A Directional Awakening."</span>
-                    <span class="pub-venue">ICLR 2026 [cite: 41, 42]</span>
-                </div>
+            <h2><i class="fas fa-file-alt"></i> Selected Publications</h2>
+            
+            <div class="pub-year">2026</div>
+            <div class="publication">
+                <span class="me">S. Fiorini</span>, H. Aktas, I. Duta, et al. 
+                <strong>"Sheaves Reloaded: A Directional Awakening."</strong> 
+                <em>ICLR 2026</em>.
+            </div>
 
-                <div class="pub-year">2025</div>
-                <div class="pub-item">
-                    <span class="pub-title">A. Islam, <span class="me">S. Fiorini</span>, S. James, et al. "Reassemble Net: Learnable Keypoints and Diffusion for 2D Fresco Reconstruction."</span>
-                    <span class="pub-venue">ICCV 2025 [cite: 43, 44]</span>
-                </div>
+            <div class="pub-year">2025</div>
+            <div class="publication">
+                A. Islam, <span class="me">S. Fiorini</span>, S. James, et al. 
+                <strong>"Reassemble Net: Learnable Keypoints and Diffusion for 2D Fresco Reconstruction."</strong> 
+                <em>ICCV 2025</em>.
+            </div>
 
-                <div class="pub-year">2024</div>
-                <div class="pub-item">
-                    <span class="pub-title">G. Scarpellini*, <span class="me">S. Fiorini*</span>, F. Giuliari*, et al. "DiffAssemble: A Unified Graph-Diffusion Model for 2D and 3D Reassembly."</span>
-                    <span class="pub-venue">CVPR 2024 [cite: 46, 47]</span>
-                </div>
-                <div class="pub-item">
-                    <span class="pub-title"><span class="me">S. Fiorini</span>, S. Coniglio, M. Ciavotta, E. Messina. "Graph Learning in 4D: a Quaternion-valued Laplacian to Enhance Spectral GCNs."</span>
-                    <span class="pub-venue">AAAI-24 [cite: 48, 49]</span>
-                </div>
+            <div class="pub-year">2024</div>
+            <div class="publication">
+                G. Scarpellini*, <span class="me">S. Fiorini*</span>, F. Giuliari*, et al. 
+                <strong>"DiffAssemble: A Unified Graph-Diffusion Model for 2D and 3D Reassembly."</strong> 
+                <em>CVPR 2024</em>.
+            </div>
+            <div class="publication">
+                <span class="me">S. Fiorini</span>, S. Coniglio, M. Ciavotta, E. Messina. 
+                <strong>"Graph Learning in 4D: a Quaternion-valued Laplacian to Enhance Spectral GCNs."</strong> 
+                <em>AAAI 2024</em>.
             </div>
         </section>
     </div>
 </div>
 
-<footer>
-    <p>&copy; 2026 Stefano Fiorini • Last Updated: March 2026</p>
+<footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.9rem;">
+    &copy; 2026 Stefano Fiorini | Updated March 2026
 </footer>
 
 </body>
