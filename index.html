@@ -1,223 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stefano Fiorini</title>
-  <style>
-    /* Global Styles */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #e8f0f8;
-      color: #333;
-      line-height: 1.6;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #005a99;
-    }
-    
-    /* Header with gradient background */
-    header {
-      background: linear-gradient(135deg, #003366, #005a99);
-      color: white;
-      padding: 3rem 1rem; /* Increased padding to ensure all text is visible */
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      position: relative;
-      z-index: 3;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      letter-spacing: 1px;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.1rem;
-    }
-    
-    /* Container Card */
-    .container {
-      background: white;
-      max-width: 900px;
-      margin: -1rem auto 2rem;  /* Reduced negative margin */
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    /* Headings */
-    h2 {
-      color: #ADD8E6;
-      border-bottom: 2px solid #0077cc;
-      padding-bottom: 0.3rem;
-      margin-top: 2rem;
-    }
-    
-    /* About Me Section */
-    .about {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    .about-text {
-      flex: 1 1 300px;
-    }
-    .about-photo {
-      flex: 0 0 200px;
-      text-align: center;
-    }
-    .about-photo img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #0077cc;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-    .about-photo img:hover {
-      transform: scale(1.05);
-    }
-    
-    /* Lists and Publications */
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    .pub-year {
-      font-weight: bold;
-      margin-top: 1.5rem;
-      color: #0077cc;
-      font-size: 1.2rem;
-    }
-    .publication {
-      margin-bottom: 1rem;
-      padding-left: 1rem;
-      border-left: 3px solid #ADD8E6;
-    }
-    
-    /* Footnotes */
-    .footnotes {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #555;
-      border-top: 1px solid #ccc;
-      padding-top: 1rem;
-    }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
-      background: #f4f7fa;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stefano Fiorini | Research Scientist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a2342;
+            --accent: #0077cc;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --light-text: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        /* Layout */
+        .main-grid {
+            max-width: 1100px;
+            margin: -4rem auto 3rem;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2rem;
+            padding: 0 20px;
+        }
+
+        /* Sidebar / Profile Card */
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .profile-card img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #f1f5f9;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s;
+        }
+
+        .contact-links a:hover { color: var(--accent); }
+
+        /* Content Area */
+        .content {
+            background: transparent;
+        }
+
+        section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Typography & Components */
+        .about-text p { margin-bottom: 1.2rem; }
+        
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .exp-item {
+            border-left: 2px solid #e2e8f0;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .exp-date { font-size: 0.85rem; color: var(--accent); font-weight: bold; }
+        .exp-title { font-weight: bold; display: block; font-size: 1.1rem; }
+
+        /* Publications */
+        .pub-list { margin-top: 1rem; }
+        .pub-year {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #cbd5e1;
+            margin: 2rem 0 1rem;
+        }
+
+        .pub-item {
+            padding: 1rem;
+            border-radius: 12px;
+            transition: background 0.2s;
+        }
+        .pub-item:hover { background: #f8fafc; }
+        .pub-title { font-weight: bold; color: var(--primary); display: block; }
+        .pub-venue { font-style: italic; font-size: 0.9rem; color: var(--light-text); }
+        .me { text-decoration: underline; font-weight: 700; }
+
+        @media (max-width: 850px) {
+            .main-grid { grid-template-columns: 1fr; margin-top: 1rem; }
+            .sidebar { position: relative; top: 0; }
+        }
+    </style>
 </head>
 <body>
-  <header>
+
+<header>
     <h1>Stefano Fiorini</h1>
-    <p>Postdoctoral Researcher at Istituto Italiano di Tecnologia</p>
-  </header>
-  
-  <div class="container">
-    <!-- About Me Section -->
-    <h2>About Me</h2>
-    <div class="about">
-      <div class="about-photo">
-        <img src="image.png" alt="Stefano Fiorini" />
-      </div>
-      <div class="about-text">
-        <p>
-          I am Stefano, a Postdoctoral Researcher at the <strong>Istituto Italiano di Tecnologia</strong> and a visiting researcher at the <strong>University of Cambridge</strong> in the group led by Professor Pietro Liò. My journey in academia has been fueled by a passion for pushing the boundaries of knowledge and applying advanced computational methods to solve real-world problems.
-        </p>
-        <p>
-          I earned my Ph.D. in Computer Science from the <strong>University of Milano-Bicocca in 2023</strong>, building a robust interdisciplinary foundation in machine learning, graph theory, and applications from computational chemistry to smart mobility. My academic path includes impactful experiences such as an internship at <strong>Nokia Bell Labs</strong> (2021) and a research visit at the Mathematics Department at the <strong>University of Southampton</strong> (2022).
-        </p>
-        <p>
-          My research interests span Graph Neural Networks, Hypergraph Neural Networks, Computer Vision, Computational Chemistry, Diffusion Models, and Smart Mobility. I thrive on continuous learning and value collaboration with diverse research groups to explore innovative ideas.
-        </p>
-        <p>
-          Outside of academia, I enjoy hiking, skiing, reading, and traveling to different countries. These activities inspire creative thinking and provide a refreshing balance to my professional pursuits.
-        </p>
-      </div>
+    <p>Research Scientist @ Huawei Finland R&D</p>
+</header>
+
+<div class="main-grid">
+    <aside class="sidebar">
+        <div class="profile-card">
+            <img src="image.png" alt="Stefano Fiorini">
+            <h3>Contact</h3>
+            <div class="contact-links">
+                <a href="mailto:s.fiorini1994@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="https://scholar.google.it/citations?user=2O-BN9YAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="https://it.linkedin.com/in/stefano-fiorini/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Stefa1994" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="CV_stefano_fiorini-8.pdf"><i class="fas fa-file-pdf"></i> Download CV</a>
+            </div>
+        </div>
+    </aside>
+
+    <div class="content">
+        <section>
+            <h2><i class="fas fa-user"></i> About Me</h2>
+            <div class="about-text">
+                <p>
+                    I am Stefano, a Research Scientist at <strong>Huawei Finland R&D</strong> [cite: 8, 9] and a visiting researcher at the <strong>University of Cambridge</strong> [cite: 14, 15] in the group led by Professor Pietro Liò[cite: 21]. Previously, I was a Postdoctoral Researcher at the <strong>Italian Institute of Technology (IIT)</strong> [cite: 22, 23] within the PAVIS group supervised by Alessio Del Bue, Ph.D.[cite: 28].
+                </p>
+                <p>
+                    I earned my Ph.D. in Computer Science from the <strong>University of Milano-Bicocca</strong> in 2023 [cite: 53, 56], building a robust foundation in machine learning and graph theory[cite: 58]. My career includes research stints at <strong>Nokia Bell Labs</strong> [cite: 36] and the <strong>University of Southampton</strong>[cite: 30].
+                </p>
+                <p>
+                    <strong>Interests:</strong> Generative Models, Graph & Hypergraph Neural Networks, Computer Vision, Autonomous Driving, and Computational Chemistry[cite: 6].
+                </p>
+                <div class="tag-container">
+                    <span class="tag">Diffusion Models</span>
+                    <span class="tag">Geometric DL</span>
+                    <span class="tag">GNNs</span>
+                    <span class="tag">Scene Synthesis</span>
+                    <span class="tag">Smart Mobility</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="exp-item">
+                <span class="exp-date">2025 — Present</span>
+                <span class="exp-title">Research Scientist, Huawei Finland R&D</span>
+                <small>Leading research on diffusion models for autonomous driving. Awarded Outstanding Individual Contribution Award[cite: 11, 12].</small>
+            </div>
+            <div class="exp-item">
+                <span class="exp-date">2025 — Present</span>
+                <span class="exp-title">Visiting Researcher, University of Cambridge</span>
+                <small>Researching Sheaf Neural Networks and molecular modeling[cite: 18, 19].</small>
+            </div>
+            <div class="exp-item">
+                <span class="exp-date">2023 — 2025</span>
+                <span class="exp-title">Postdoc, Istituto Italiano di Tecnologia</span>
+                <small>Foundational research on GNNs and Diffusion Models[cite: 26].</small>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-book"></i> Selected Publications</h2>
+            <div class="pub-list">
+                <div class="pub-year">2026</div>
+                <div class="pub-item">
+                    <span class="pub-title"><span class="me">S. Fiorini</span>, H. Aktas, I. Duta, et al. "Sheaves Reloaded: A Directional Awakening."</span>
+                    <span class="pub-venue">ICLR 2026 [cite: 41, 42]</span>
+                </div>
+
+                <div class="pub-year">2025</div>
+                <div class="pub-item">
+                    <span class="pub-title">A. Islam, <span class="me">S. Fiorini</span>, S. James, et al. "Reassemble Net: Learnable Keypoints and Diffusion for 2D Fresco Reconstruction."</span>
+                    <span class="pub-venue">ICCV 2025 [cite: 43, 44]</span>
+                </div>
+
+                <div class="pub-year">2024</div>
+                <div class="pub-item">
+                    <span class="pub-title">G. Scarpellini*, <span class="me">S. Fiorini*</span>, F. Giuliari*, et al. "DiffAssemble: A Unified Graph-Diffusion Model for 2D and 3D Reassembly."</span>
+                    <span class="pub-venue">CVPR 2024 [cite: 46, 47]</span>
+                </div>
+                <div class="pub-item">
+                    <span class="pub-title"><span class="me">S. Fiorini</span>, S. Coniglio, M. Ciavotta, E. Messina. "Graph Learning in 4D: a Quaternion-valued Laplacian to Enhance Spectral GCNs."</span>
+                    <span class="pub-venue">AAAI-24 [cite: 48, 49]</span>
+                </div>
+            </div>
+        </section>
     </div>
-
-    
-    <!-- Previous Experiences Section -->
-    <h2>Previous Experiences</h2>
-    <ul>
-      <li>2022 – Visiting Researcher, Mathematics Department, University of Southampton</li>
-      <li>2021 – Internship at Nokia Bell Labs, Cambridge</li>
-    </ul>
-    
-    <!-- Research Interests Section -->
-    <h2>Research Interests</h2>
-    <ul>
-      <li>Graph Neural Networks</li>
-      <li>Hypergraph Neural Networks</li>
-      <li>Computer Vision</li>
-      <li>Computational Chemistry</li>
-      <li>Diffusion Models</li>
-      <li>Smart Mobility</li>
-    </ul>
-    
-    <!-- Links Section -->
-    <h2>Links</h2>
-    <p>
-    📚 <a href="https://scholar.google.it/citations?user=2O-BN9YAAAAJ&hl=it" target="_blank">Google Scholar</a><br/>
-    💼 <a href="https://it.linkedin.com/in/stefano-fiorini/" target="_blank">LinkedIn</a><br/>
-    🧑‍💻 <a href="https://github.com/Stefa1994" target="_blank">GitHub</a><br/>
-    📄 <a href="CV_stefano_fiorini-8.pdf" target="_blank">Download my CV</a>
-    </p>
-    
-    <!-- Selected Publications Section -->
-<h2>Selected Publications</h2>
-
-<div class="pub-year">2025</div>
-<div class="publication">
-  S. Fiorini, G. M. Bovolenta, S. Coniglio, M. Ciavotta, M. Parrinello, A. Del Bue. 
-  <em>DLGNET: Hyperedge Classification through Directed Line Graphs for Chemical Reaction.</em>
 </div>
 
-<div class="pub-year">2024</div>
-<div class="publication">
-  S. Fiorini, S. Coniglio, M. Ciavotta, A. Del Bue. 
-  <em>Let There be Direction in Hypergraph Neural Networks.</em> Transactions on Machine Learning Research (TMLR).
-</div>
-<div class="publication">
-  G. Scarpellini<sup>1</sup>, S. Fiorini<sup>1</sup>, F. Giuliari<sup>1</sup>, P. Morerio, A. Del Bue. 
-  <em>DiffAssemble: A Unified Graph-Diffusion Model for 2D and 3D Reassembly.</em> CVPR 2024.
-</div>
-<div class="publication">
-  S. Fiorini, S. Coniglio, M. Ciavotta, E. Messina. 
-  <em>Graph Learning in 4D: a Quaternion-valued Laplacian to Enhance Spectral GCNs.</em> AAAI 2024.
-</div>
-<div class="publication">
-  F. Giuliari, G. Scarpellini, S. Fiorini, S. James, P. Morerio, Y. Wang, A. Del Bue. 
-  <em>Positional Diffusion: Graph-based Diffusion Models for Set Ordering.</em> Pattern Recognition Letters 186 (2024).
-</div>
+<footer>
+    <p>&copy; 2026 Stefano Fiorini • Last Updated: March 2026</p>
+</footer>
 
-<div class="pub-year">2023</div>
-<div class="publication">
-  S. Fiorini, S. Coniglio, M. Ciavotta, E. Messina. 
-  <em>SigMaNet: One Laplacian to Rule Them All.</em> AAAI 2023.
-</div>
-
-<!-- Footnotes Section -->
-<div class="footnotes">
-  <p><sup>1</sup> Equal contribution</p>
-</div>
+</body>
+</html>
